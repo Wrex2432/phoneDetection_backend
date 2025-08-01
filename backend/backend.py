@@ -1,11 +1,16 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from ultralytics import YOLO
+
+from pathlib import Path
+
 import cv2
 import numpy as np
 from PIL import Image
 import io
 import base64
+
+
 
 app = FastAPI()
 
@@ -18,14 +23,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load YOLOv10 model (downloads automatically if not present)
+# ── resolve weights next to this script ─────────────────────────
+WEIGHTS_PATH = Path(__file__).with_name("yolov10n.pt")
+
 try:
-    model = YOLO('yolov10n.pt')  # ~6MB download on first run
-    print("✅ Model loaded successfully!")
+    model = YOLO(str(WEIGHTS_PATH))
+    print(f"✅ Model loaded: {WEIGHTS_PATH}")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
     model = None
-
 @app.get("/")
 async def root():
     return {"message": "Mobile Phone Detection API", "model_loaded": model is not None}
