@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+ultralytics==0.4.2        # or current pinned version
+torch                     # CPU wheel auto-selected
+opencv-python-headless
+pillow
