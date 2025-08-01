@@ -5,3 +5,20 @@ torch==2.2.2                # pin CPU wheel before 2.6 change
 opencv-python-headless
 pillow
 python-multipart
+# Core framework
+fastapi
+uvicorn[standard]
+
+# Ultralytics + CPU-only PyTorch stack
+ultralytics==8.0.134
+torch==2.2.2+cpu
+torchvision==0.17.2+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Binary-compatible NumPy (pin < 2.0)
+numpy==1.26.4
+
+# Utilities
+opencv-python-headless
+pillow
+python-multipart
