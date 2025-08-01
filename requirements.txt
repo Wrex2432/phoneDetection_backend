@@ -1,7 +1,7 @@
 fastapi
 uvicorn[standard]
-ultralytics==8.0.134
-torch
+ultralytics==8.0.134        # <- good with Torch ≤2.3
+torch==2.2.2                # pin CPU wheel before 2.6 change
 opencv-python-headless
 pillow
-python-multipart      # ← new line
+python-multipart
