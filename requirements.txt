@@ -1,24 +1,14 @@
 fastapi
 uvicorn[standard]
-ultralytics==8.0.134        # <- good with Torch ≤2.3
-torch==2.2.2                # pin CPU wheel before 2.6 change
-opencv-python-headless
-pillow
-python-multipart
-# Core framework
-fastapi
-uvicorn[standard]
 
-# Ultralytics + CPU-only PyTorch stack
-ultralytics==8.0.134
+# newer Ultralytics that contains SCDown:
+ultralytics==8.2.28          # (any 8.2.x / 8.3.x works on Python ≤3.11)
+
 torch==2.2.2+cpu
 torchvision==0.17.2+cpu
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-# Binary-compatible NumPy (pin < 2.0)
 numpy==1.26.4
-
-# Utilities
 opencv-python-headless
 pillow
 python-multipart
