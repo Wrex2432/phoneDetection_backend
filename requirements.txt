@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
-ultralytics==0.4.2        # or current pinned version
-torch                     # CPU wheel auto-selected
+ultralytics==8.0.134      # any 8.x works with Py ≤3.11
+torch                     # pulls latest CPU wheel
 opencv-python-headless
 pillow
